@@ -8,7 +8,7 @@
 
       <div class="hero__badge">
         <span class="hero__badge-icon" aria-hidden="true"></span>
-        <span>{{ hero.badge }}</span>
+        <span class="hero__badge-text">{{ hero.badge }}</span>
       </div>
 
       <h1>{{ hero.title }}</h1>

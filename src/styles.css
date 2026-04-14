@@ -87,7 +87,7 @@ button {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 100%;
+  width: 1600px;
   height: 900px;
   transform: translateX(-50%);
   z-index: -2;
@@ -239,7 +239,6 @@ button {
   text-align: center;
 }
 
-
 .hero {
   padding-top: 66px;
   padding-bottom: 72px;
@@ -272,7 +271,7 @@ button {
   background: linear-gradient(90deg, rgba(21, 93, 252, 0.1), rgba(230, 0, 118, 0.11));
   border: 1px solid rgba(198, 209, 223, 0.52);
   box-shadow: 0 8px 18px rgba(155, 164, 176, 0.16);
-  color: var(--blue-500);
+  color: linear-gradient(90deg, var(--blue-500), var(--pink-500));
   font-size: 0.95rem;
   font-weight: 600;
 }
@@ -282,7 +281,7 @@ button {
   height: 18px;
   flex: 0 0 18px;
   display: inline-block;
-  background-color: currentColor;
+  background-color: var(--blue-500);
   -webkit-mask-image: url('/assets/icon/stars.svg');
   mask-image: url('/assets/icon/stars.svg');
   -webkit-mask-repeat: no-repeat;
@@ -293,12 +292,20 @@ button {
   mask-size: contain;
 }
 
+.hero__badge-text {
+  display: inline-block;
+  background: linear-gradient(90deg, #2f6bff 0%, #7a3ff3 55%, #e60076 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .hero h1 {
   max-width: 620px;
   font-size: clamp(2.6rem, 4.7vw, 3.45rem);
   line-height: 1.08;
   letter-spacing: -0.035em;
-  background: linear-gradient(180deg, var(--blue-500) 0%, var(--pink-500) 100%);
+  background: linear-gradient(90deg, var(--blue-500) 0%, var(--pink-500) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -337,7 +344,7 @@ button {
 
 .hero-pill__text {
   color: #0f1728;
-  font-weight: 500;
+  /* font-weight: 500; */
 }
 
 .hero-pill--blue { color: var(--blue-500); }
@@ -508,147 +515,6 @@ button {
   opacity: 0.13;
 }
 
-.soft-card--audience .list-blocks li {
-  position: relative;
-  overflow: visible;
-  padding: 8px 10px 8px 0;
-  border-radius: 18px;
-  transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease,
-    background-color 0.22s ease;
-}
-
-.soft-card--audience .list-blocks li:hover {
-  transform: translateY(-2px);
-}
-
-.soft-card--audience .list-blocks li > div {
-  transition: transform 0.22s ease;
-}
-
-.soft-card--audience .list-blocks li:hover > div {
-  transform: translateY(-1px);
-}
-
-.soft-card--audience .list-blocks li .audience-check:hover {
-  transform: translateY(-1px) scale(1.04);
-  filter: drop-shadow(0 8px 14px rgba(31, 42, 55, 0.12));
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check{
-  transform: translateY(-1px) scale(1.03);
-  box-shadow: 0 10px 18px rgba(31, 42, 55, 0.12);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check::before,
-.soft-card--audience .list-blocks li .audience-check:hover::before {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-  box-shadow: 0 10px 18px rgba(31, 42, 55, 0.12);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check--blue {
-  background: rgba(21, 93, 252, 0.18);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check--purple {
-  background: rgba(152, 16, 250, 0.18);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check--pink {
-  background: rgba(230, 0, 118, 0.18);
-}
-
-.audience-check {
-  position: relative;
-  z-index: 1;
-  width: 56px;
-  height: 56px;
-  margin-top: 2px;
-  display: grid;
-  place-items: center;
-  flex: 0 0 56px;
-  border-radius: 50%;
-  background: transparent;
-  box-shadow: none;
-
-  /* 把舊的 mask 本體清掉，避免殘留 */
-  -webkit-mask-image: none;
-  mask-image: none;
-
-  transition:
-    transform 0.22s ease,
-    background-color 0.22s ease,
-    box-shadow 0.22s ease;
-}
-
-.audience-check::after {
-  content: '';
-  width: 18px;
-  height: 18px;
-  display: block;
-  background-color: currentColor;
-  -webkit-mask-image: url('/assets/icon/check.svg');
-  mask-image: url('/assets/icon/check.svg');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-.audience-check::before {
-  content: '';
-  width: 18px;
-  height: 18px;
-  display: block;
-  background-color: currentColor;
-  -webkit-mask-image: url('/assets/icon/check.svg');
-  mask-image: url('/assets/icon/check.svg');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-.audience-check--blue {
-  color: var(--blue-500);
-}
-
-.audience-check--purple {
-  color: var(--purple-500);
-}
-
-.audience-check--pink {
-  color: var(--pink-500);
-}
-.audience-check--blue::before {
-  background: rgba(21, 93, 252, 0.18);
-}
-
-.audience-check--purple::before {
-  background: rgba(152, 16, 250, 0.18);
-}
-
-.audience-check--pink::before {
-  background: rgba(230, 0, 118, 0.18);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check {
-  transform: translateY(-1px) scale(1.04);
-  filter: drop-shadow(0 8px 14px rgba(31, 42, 55, 0.12));
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check::before {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
-  box-shadow: 0 10px 18px rgba(31, 42, 55, 0.12);
-}
-
 .soft-card--audience::before {
   content: '';
   position: absolute;
@@ -717,51 +583,6 @@ button {
   display: none;
 }
 
-/* ===== result / 課程成果 hover ===== */
-.result-card .result-list li {
-  position: relative;
-  border-radius: 16px;
-  transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease;
-}
-
-.result-card .result-list li > span:last-child {
-  transition: transform 0.22s ease;
-}
-
-.result-card .result-list li:hover {
-  transform: translateY(-2px);
-}
-
-.result-card .result-list li:hover > span:last-child {
-  transform: translateY(-1px);
-}
-
-.result-list__icon-wrap {
-  transition:
-    transform 0.22s ease,
-    background-color 0.22s ease,
-    box-shadow 0.22s ease,
-    opacity 0.22s ease;
-}
-
-.result-list__icon {
-  transition: transform 0.22s ease;
-}
-
-.result-card .result-list li:hover .result-list__icon-wrap {
-  transform: translateY(-1px) scale(1.05);
-  background: rgba(255, 255, 255, 0.26);
-  box-shadow:
-    0 10px 18px rgba(12, 18, 46, 0.14),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
-}
-
-.result-card .result-list li:hover .result-list__icon {
-  transform: scale(1.04);
-}
-
 .card-heading {
   display: flex;
   align-items: center;
@@ -799,11 +620,20 @@ button {
   object-fit: contain;
 }
 
-.mini-icon--blue { background: linear-gradient(135deg, var(--blue-500), #4e86ff); }
-.mini-icon--light { background: rgba(255, 255, 255, 0.14); backdrop-filter: blur(8px); }
+.mini-icon--blue {
+  background: linear-gradient(135deg, var(--blue-500), #4e86ff);
+}
+
+.mini-icon--light {
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+}
+
 .mini-icon img,
 .goal-card__icon img,
-.teacher-card__photo-badge img { filter: brightness(0) invert(1); }
+.teacher-card__photo-badge img {
+  filter: brightness(0) invert(1);
+}
 
 .list-blocks {
   display: grid;
@@ -817,6 +647,7 @@ button {
   gap: 14px;
   align-items: start;
 }
+
 /* ===== audience hover：唯一保留版本 ===== */
 .soft-card--audience .list-blocks li {
   position: relative;
@@ -851,10 +682,6 @@ button {
   border-radius: 999px;
   background: transparent;
   box-shadow: none;
-
-  -webkit-mask-image: none;
-  mask-image: none;
-
   transition:
     transform 0.22s ease,
     background-color 0.22s ease,
@@ -910,210 +737,76 @@ button {
   background: rgba(230, 0, 118, 0.18);
 }
 
-.soft-card--audience .list-blocks li {
-  position: relative;
-  overflow: visible;
-  padding: 8px 10px 8px 0;
-  border-radius: 18px;
-  transition: transform 0.22s ease;
-}
-
-.soft-card--audience .list-blocks li > div {
-  transition: transform 0.22s ease;
-}
-
-.soft-card--audience .list-blocks li:hover {
-  transform: translateY(-2px);
-}
-
-.soft-card--audience .list-blocks li:hover > div {
-  transform: translateY(-1px);
-}
-
-.audience-check {
-  position: relative;
-  z-index: 1;
-  width: 56px;
-  height: 56px;
-  margin-top: 0;
+.result-list {
+  margin-top: 50px;
   display: grid;
-  place-items: center;
-  justify-self: center;
-  flex: 0 0 56px;
-  border-radius: 999px;
-  background: transparent;
-  box-shadow: none;
+  gap: 30px;
+}
 
-  /* 關掉舊版小 mask icon 本體 */
-  -webkit-mask-image: none;
-  mask-image: none;
+.result-list li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: center;
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
 
+/* ===== result / 課程成果 hover ===== */
+.result-card .result-list li {
+  position: relative;
+  border-radius: 16px;
   transition:
     transform 0.22s ease,
-    background-color 0.22s ease,
     box-shadow 0.22s ease;
 }
 
-.audience-check::before {
-  content: '';
-  width: 18px;
-  height: 18px;
-  display: block;
-  background-color: currentColor;
-  -webkit-mask-image: url('/assets/icon/check.svg');
-  mask-image: url('/assets/icon/check.svg');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-.audience-check::after {
-  content: none;
-}
-
-.audience-check--blue {
-  color: var(--blue-500);
-}
-
-.audience-check--purple {
-  color: var(--purple-500);
-}
-
-.audience-check--pink {
-  color: var(--pink-500);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check {
-  transform: translateY(-1px) scale(1.03);
-  box-shadow: 0 10px 18px rgba(31, 42, 55, 0.12);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check--blue {
-  background: rgba(21, 93, 252, 0.18);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check--purple {
-  background: rgba(152, 16, 250, 0.18);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check--pink {
-  background: rgba(230, 0, 118, 0.18);
-}
-
-.soft-card--audience .list-blocks li {
-  position: relative;
-  overflow: visible;
-  padding: 8px 10px 8px 0;
-  border-radius: 18px;
+.result-card .result-list li > span:last-child {
   transition: transform 0.22s ease;
 }
 
-.soft-card--audience .list-blocks li > div {
-  transition: transform 0.22s ease;
-}
-
-.soft-card--audience .list-blocks li:hover {
+.result-card .result-list li:hover {
   transform: translateY(-2px);
 }
 
-.soft-card--audience .list-blocks li:hover > div {
+.result-card .result-list li:hover > span:last-child {
   transform: translateY(-1px);
 }
 
-.audience-check {
-  position: relative;
-  z-index: 1;
-  width: 56px;
-  height: 56px;
-  margin-top: 2px;
+.result-list__icon-wrap {
+  width: 30px;
+  height: 30px;
   display: grid;
   place-items: center;
-  flex: 0 0 56px;
-  border-radius: 999px;
-  background: transparent;
-  box-shadow: none;
-
-  /* 關掉舊版小 icon mask 本體 */
-  -webkit-mask-image: none;
-  mask-image: none;
-
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   transition:
     transform 0.22s ease,
     background-color 0.22s ease,
-    box-shadow 0.22s ease;
+    box-shadow 0.22s ease,
+    opacity 0.22s ease;
 }
 
-/* 這個才是中間那個小勾勾 icon */
-.audience-check::after {
-  content: '';
-  width: 18px;
-  height: 18px;
-  display: block;
-  background-color: currentColor;
-  -webkit-mask-image: url('/assets/icon/check.svg');
-  mask-image: url('/assets/icon/check.svg');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
+.result-list__icon {
+  width: 19px;
+  height: 19px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: transform 0.22s ease;
 }
 
-/* 顏色本體 */
-.audience-check--blue {
-  color: var(--blue-500);
+.result-card .result-list li:hover .result-list__icon-wrap {
+  transform: translateY(-1px) scale(1.05);
+  background: rgba(255, 255, 255, 0.26);
+  box-shadow:
+    0 10px 18px rgba(12, 18, 46, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
-.audience-check--purple {
-  color: var(--purple-500);
+.result-card .result-list li:hover .result-list__icon {
+  transform: scale(1.04);
 }
-
-.audience-check--pink {
-  color: var(--pink-500);
-}
-
-/* hover 時，整顆 icon 容器自己變色，不是偷偷用 before 疊一層 */
-.soft-card--audience .list-blocks li:hover .audience-check {
-  transform: translateY(-1px) scale(1.03);
-  box-shadow: 0 10px 18px rgba(31, 42, 55, 0.12);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check--blue {
-  background: rgba(21, 93, 252, 0.18);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check--purple {
-  background: rgba(152, 16, 250, 0.18);
-}
-
-.soft-card--audience .list-blocks li:hover .audience-check--pink {
-  background: rgba(230, 0, 118, 0.18);
-}
-
-.audience-check {
-  width: 18px;
-  height: 18px;
-  margin-top: 18px;
-  flex: 0 0 18px;
-  display: inline-block;
-  background-color: currentColor;
-  -webkit-mask-image: url('/assets/icon/check.svg');
-  mask-image: url('/assets/icon/check.svg');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-.audience-check--blue { color: var(--blue-500); }
-.audience-check--purple { color: var(--purple-500); }
-.audience-check--pink { color: var(--pink-500); }
 
 .list-blocks strong,
 .goal-card h3,
@@ -1137,38 +830,6 @@ button {
   color: var(--text-sub);
 }
 
-.result-list {
-  margin-top: 50px;
-  display: grid;
-  gap: 30px;
-}
-
-.result-list li {
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  gap: 12px;
-  align-items: center;
-  font-size: 1.02rem;
-  line-height: 1.75;
-}
-
-.result-list__icon-wrap {
-  width: 30px;
-  height: 30px;
-  display: grid;
-  place-items: center;
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.18);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-
-.result-list__icon {
-  width: 19px;
-  height: 19px;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-}
-
 .goal-card {
   align-content: start;
 }
@@ -1188,13 +849,15 @@ button {
 .goal-card--teal .goal-card__icon { background: linear-gradient(135deg, var(--teal-500), #2dc8ba); }
 .goal-card--orange .goal-card__icon { background: linear-gradient(135deg, var(--orange-500), #ff9834); }
 
-.teacher-section { padding-top: 64px; }
+.teacher-section {
+  padding-top: 64px;
+}
 
 .teacher-card__top {
   display: grid;
   grid-template-columns: 250px minmax(0, 1fr);
   gap: 26px;
-  align-items: center;
+  align-items: start;
   margin-bottom: 24px;
 }
 
@@ -1263,6 +926,8 @@ button {
 .teacher-card__content {
   display: grid;
   gap: 14px;
+  align-self: start;
+  padding-top: 20px;
 }
 
 .teacher-card__identity {
@@ -1312,9 +977,12 @@ button {
   font-size: 0.995rem;
   line-height: 1.95;
   color: var(--navy-700);
+  justify-items: left;
 }
 
-.teacher-card__lists { gap: 18px; }
+.teacher-card__lists {
+  gap: 18px;
+}
 
 .info-list-card {
   padding: 22px 24px;
@@ -1346,7 +1014,9 @@ button {
 .info-list-card--blue::before { background: url('/assets/icon/TSLC.svg') center / contain no-repeat; }
 .info-list-card--purple::before { background: url('/assets/icon/TSRC.svg') center / contain no-repeat; }
 
-.info-list-card h3 { margin-bottom: 14px; }
+.info-list-card h3 {
+  margin-bottom: 14px;
+}
 
 .info-list-card ul,
 .session-card ul {
@@ -1403,7 +1073,9 @@ button {
   box-shadow: 0 0 0 5px rgba(245, 73, 0, 0.12);
 }
 
-.curriculum-section { padding-top: 62px; }
+.curriculum-section {
+  padding-top: 62px;
+}
 
 .session-card {
   min-height: 296px;
@@ -1449,7 +1121,9 @@ button {
 .session-card--teal .session-chip { background: linear-gradient(135deg, var(--teal-500), #55d8cf); }
 .session-card--orange .session-chip { background: linear-gradient(135deg, var(--orange-500), #ff9f3a); }
 
-.mobile-carousel-controls { display: none; }
+.mobile-carousel-controls {
+  display: none;
+}
 
 .cta-section {
   padding-top: 68px;
@@ -1479,7 +1153,7 @@ button {
   top: 40px;
   width: 80px;
   height: 80px;
-  background:  url('/assets/icon/ctaL.svg') center / contain no-repeat;
+  background: url('/assets/icon/ctaL.svg') center / contain no-repeat;
   opacity: 0.85;
 }
 
@@ -1541,12 +1215,23 @@ button {
   line-height: 1.9;
 }
 
-.cta-highlight { font-weight: 700; }
-.cta-highlight--blue { color: #4f8cff; }
-.cta-highlight--purple { color: #9f45ff; }
-.cta-highlight--pink { color: #ff2d95; }
+.cta-highlight {
+  font-weight: 700;
+}
 
-@media (max-width: 1024px) {
+.cta-highlight--blue {
+  color: #4f8cff;
+}
+
+.cta-highlight--purple {
+  color: #9f45ff;
+}
+
+.cta-highlight--pink {
+  color: #ff2d95;
+}
+
+@media (max-width: 768px) {
   :root {
     --container: min(920px, calc(100vw - 56px));
   }
@@ -1585,11 +1270,6 @@ button {
     padding-bottom: 64px;
   }
 
-  .split-grid,
-  .teacher-card__top,
-  .teacher-card__lists {
-    grid-template-columns: 1fr;
-  }
 
   .soft-card,
   .result-card {
@@ -1604,7 +1284,7 @@ button {
 
   .teacher-card__content,
   .teacher-card__identity {
-    justify-items: center;
+    justify-items:left;
   }
 
   .teacher-card__photo-wrap {
@@ -1612,10 +1292,12 @@ button {
     height: 286px;
   }
 
-  .teacher-card__photo-badge { right: 18px; }
+  .teacher-card__photo-badge {
+    right: 18px;
+  }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 550px) {
   :root {
     --container: min(calc(100vw - 32px), 100%);
   }
@@ -1737,8 +1419,24 @@ button {
     padding: 22px;
   }
 
-  .teacher-card__title { font-size: 2rem; }
+  .split-grid,
+  .teacher-card__top,
+  .teacher-card__lists {
+    grid-template-columns: 1fr;
+  }
 
+  .teacher-card__content,
+  .teacher-card__identity {
+    justify-items: center;
+  }
+
+  .teacher-card__title {
+    font-size: 2rem;
+  }
+
+  .teacher-card__content{
+    padding-top: -20px;
+  }
   .teacher-card__photo-wrap {
     width: min(190px, 100%);
     height: 234px;
@@ -1756,8 +1454,8 @@ button {
   }
 
   .goals-section .section-wrap::before {
-    right: 40;
-    top: -40px;
+    right: 40px;
+    top: -50px;
     width: 180px;
     height: 180px;
   }
@@ -1816,9 +1514,6 @@ button {
     font-size: 1rem;
     line-height: 1.82;
   }
-}
-
-@media (max-width: 520px) {
   .hero__description,
   .section-title p,
   .teacher-card__intro,
