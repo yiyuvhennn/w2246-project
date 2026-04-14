@@ -1,11 +1,15 @@
 <template>
   <div class="section-title" :class="{ center: centered }">
-    <span v-if="icon" class="section-title__icon">
-      <img :src="icon" alt="" />
-    </span>
-    <div class="section-title__copy">
-      <h2>{{ title }}</h2>
+    <div class="section-title__top">
+      <span v-if="icon" class="section-title__icon">
+        <img :src="icon" alt="" />
+      </span>
+
+      <div class="section-title__copy">
+        <h2>{{ title }}</h2>
+      </div>
     </div>
+
     <p v-if="description">{{ description }}</p>
   </div>
 </template>

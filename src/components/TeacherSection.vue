@@ -14,7 +14,7 @@
 
           <div class="teacher-card__content">
             <div class="teacher-card__identity">
-              <h3 class="teacher-card__title">{{ teacher.name }}</h3>
+              <!-- <h3 class="teacher-card__title">{{ teacher.name }}</h3> -->
               <span class="teacher-card__name">
                 <span class="teacher-card__name-icon" aria-hidden="true"></span>
                 <span class="teacher-card__name-text">{{ teacher.badge }}</span>

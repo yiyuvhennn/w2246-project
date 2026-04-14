@@ -138,9 +138,9 @@ button {
   content: '';
   position: absolute;
   right: -26px;
-  top: -72px;
-  width: 182px;
-  height: 182px;
+  top: -90px;
+  width: 185px;
+  height: 185px;
   background: url('/assets/icon/GSright.svg') center / contain no-repeat;
   pointer-events: none;
   z-index: 0;
@@ -186,12 +186,19 @@ button {
 
 .section-title {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
+  gap: 10px;
   margin-bottom: 30px;
   text-align: center;
+}
+
+.section-title__top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
 .section-title__icon {
@@ -213,26 +220,25 @@ button {
 }
 
 .section-title__copy {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: block;
 }
 
 .section-title h2 {
+  margin: 0;
   font-size: clamp(1.9rem, 3vw, 2.3rem);
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
 .section-title p {
-  flex-basis: 100%;
+  margin: 0;
   max-width: 650px;
   font-size: 1rem;
   line-height: 1.8;
   color: var(--text-sub);
+  text-align: center;
 }
+
 
 .hero {
   padding-top: 66px;
@@ -371,9 +377,9 @@ button {
 
 .hero__decor--left-shape {
   left: -52px;
-  top: 14px;
-  width: 188px;
-  height: 220px;
+  top: -60px;
+  width: 256px;
+  height: 256px;
   background: url('/assets/icon/HrSleft.svg') center / contain no-repeat;
   opacity: 0.82;
 }
@@ -502,6 +508,147 @@ button {
   opacity: 0.13;
 }
 
+.soft-card--audience .list-blocks li {
+  position: relative;
+  overflow: visible;
+  padding: 8px 10px 8px 0;
+  border-radius: 18px;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.soft-card--audience .list-blocks li:hover {
+  transform: translateY(-2px);
+}
+
+.soft-card--audience .list-blocks li > div {
+  transition: transform 0.22s ease;
+}
+
+.soft-card--audience .list-blocks li:hover > div {
+  transform: translateY(-1px);
+}
+
+.soft-card--audience .list-blocks li .audience-check:hover {
+  transform: translateY(-1px) scale(1.04);
+  filter: drop-shadow(0 8px 14px rgba(31, 42, 55, 0.12));
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check{
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 10px 18px rgba(31, 42, 55, 0.12);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check::before,
+.soft-card--audience .list-blocks li .audience-check:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 10px 18px rgba(31, 42, 55, 0.12);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--blue {
+  background: rgba(21, 93, 252, 0.18);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--purple {
+  background: rgba(152, 16, 250, 0.18);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--pink {
+  background: rgba(230, 0, 118, 0.18);
+}
+
+.audience-check {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  margin-top: 2px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 56px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: none;
+
+  /* 把舊的 mask 本體清掉，避免殘留 */
+  -webkit-mask-image: none;
+  mask-image: none;
+
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.audience-check::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  display: block;
+  background-color: currentColor;
+  -webkit-mask-image: url('/assets/icon/check.svg');
+  mask-image: url('/assets/icon/check.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.audience-check::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  display: block;
+  background-color: currentColor;
+  -webkit-mask-image: url('/assets/icon/check.svg');
+  mask-image: url('/assets/icon/check.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.audience-check--blue {
+  color: var(--blue-500);
+}
+
+.audience-check--purple {
+  color: var(--purple-500);
+}
+
+.audience-check--pink {
+  color: var(--pink-500);
+}
+.audience-check--blue::before {
+  background: rgba(21, 93, 252, 0.18);
+}
+
+.audience-check--purple::before {
+  background: rgba(152, 16, 250, 0.18);
+}
+
+.audience-check--pink::before {
+  background: rgba(230, 0, 118, 0.18);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check {
+  transform: translateY(-1px) scale(1.04);
+  filter: drop-shadow(0 8px 14px rgba(31, 42, 55, 0.12));
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow: 0 10px 18px rgba(31, 42, 55, 0.12);
+}
+
 .soft-card--audience::before {
   content: '';
   position: absolute;
@@ -570,6 +717,51 @@ button {
   display: none;
 }
 
+/* ===== result / 課程成果 hover ===== */
+.result-card .result-list li {
+  position: relative;
+  border-radius: 16px;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.result-card .result-list li > span:last-child {
+  transition: transform 0.22s ease;
+}
+
+.result-card .result-list li:hover {
+  transform: translateY(-2px);
+}
+
+.result-card .result-list li:hover > span:last-child {
+  transform: translateY(-1px);
+}
+
+.result-list__icon-wrap {
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.result-list__icon {
+  transition: transform 0.22s ease;
+}
+
+.result-card .result-list li:hover .result-list__icon-wrap {
+  transform: translateY(-1px) scale(1.05);
+  background: rgba(255, 255, 255, 0.26);
+  box-shadow:
+    0 10px 18px rgba(12, 18, 46, 0.14),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.result-card .result-list li:hover .result-list__icon {
+  transform: scale(1.04);
+}
+
 .card-heading {
   display: flex;
   align-items: center;
@@ -621,9 +813,285 @@ button {
 .list-blocks li,
 .audience-list li {
   display: grid;
-  grid-template-columns: 18px 1fr;
+  grid-template-columns: 56px 1fr;
   gap: 14px;
   align-items: start;
+}
+/* ===== audience hover：唯一保留版本 ===== */
+.soft-card--audience .list-blocks li {
+  position: relative;
+  overflow: visible;
+  padding: 8px 0;
+  border-radius: 18px;
+  transition: transform 0.22s ease;
+}
+
+.soft-card--audience .list-blocks li > div {
+  transition: transform 0.22s ease;
+}
+
+.soft-card--audience .list-blocks li:hover {
+  transform: translateY(-2px);
+}
+
+.soft-card--audience .list-blocks li:hover > div {
+  transform: translateY(-1px);
+}
+
+.audience-check {
+  position: relative;
+  z-index: 1;
+  width: 46px;
+  height: 46px;
+  margin-top: 4px;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  flex: 0 0 46px;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+
+  -webkit-mask-image: none;
+  mask-image: none;
+
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.audience-check::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  display: block;
+  background-color: currentColor;
+  -webkit-mask-image: url('/assets/icon/check.svg');
+  mask-image: url('/assets/icon/check.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.audience-check::after {
+  content: none;
+}
+
+.audience-check--blue {
+  color: var(--blue-500);
+}
+
+.audience-check--purple {
+  color: var(--purple-500);
+}
+
+.audience-check--pink {
+  color: var(--pink-500);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 8px 16px rgba(31, 42, 55, 0.10);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--blue {
+  background: rgba(21, 93, 252, 0.18);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--purple {
+  background: rgba(152, 16, 250, 0.18);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--pink {
+  background: rgba(230, 0, 118, 0.18);
+}
+
+.soft-card--audience .list-blocks li {
+  position: relative;
+  overflow: visible;
+  padding: 8px 10px 8px 0;
+  border-radius: 18px;
+  transition: transform 0.22s ease;
+}
+
+.soft-card--audience .list-blocks li > div {
+  transition: transform 0.22s ease;
+}
+
+.soft-card--audience .list-blocks li:hover {
+  transform: translateY(-2px);
+}
+
+.soft-card--audience .list-blocks li:hover > div {
+  transform: translateY(-1px);
+}
+
+.audience-check {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  margin-top: 0;
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  flex: 0 0 56px;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+
+  /* 關掉舊版小 mask icon 本體 */
+  -webkit-mask-image: none;
+  mask-image: none;
+
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.audience-check::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  display: block;
+  background-color: currentColor;
+  -webkit-mask-image: url('/assets/icon/check.svg');
+  mask-image: url('/assets/icon/check.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.audience-check::after {
+  content: none;
+}
+
+.audience-check--blue {
+  color: var(--blue-500);
+}
+
+.audience-check--purple {
+  color: var(--purple-500);
+}
+
+.audience-check--pink {
+  color: var(--pink-500);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 10px 18px rgba(31, 42, 55, 0.12);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--blue {
+  background: rgba(21, 93, 252, 0.18);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--purple {
+  background: rgba(152, 16, 250, 0.18);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--pink {
+  background: rgba(230, 0, 118, 0.18);
+}
+
+.soft-card--audience .list-blocks li {
+  position: relative;
+  overflow: visible;
+  padding: 8px 10px 8px 0;
+  border-radius: 18px;
+  transition: transform 0.22s ease;
+}
+
+.soft-card--audience .list-blocks li > div {
+  transition: transform 0.22s ease;
+}
+
+.soft-card--audience .list-blocks li:hover {
+  transform: translateY(-2px);
+}
+
+.soft-card--audience .list-blocks li:hover > div {
+  transform: translateY(-1px);
+}
+
+.audience-check {
+  position: relative;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  margin-top: 2px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 56px;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+
+  /* 關掉舊版小 icon mask 本體 */
+  -webkit-mask-image: none;
+  mask-image: none;
+
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+/* 這個才是中間那個小勾勾 icon */
+.audience-check::after {
+  content: '';
+  width: 18px;
+  height: 18px;
+  display: block;
+  background-color: currentColor;
+  -webkit-mask-image: url('/assets/icon/check.svg');
+  mask-image: url('/assets/icon/check.svg');
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+/* 顏色本體 */
+.audience-check--blue {
+  color: var(--blue-500);
+}
+
+.audience-check--purple {
+  color: var(--purple-500);
+}
+
+.audience-check--pink {
+  color: var(--pink-500);
+}
+
+/* hover 時，整顆 icon 容器自己變色，不是偷偷用 before 疊一層 */
+.soft-card--audience .list-blocks li:hover .audience-check {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 10px 18px rgba(31, 42, 55, 0.12);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--blue {
+  background: rgba(21, 93, 252, 0.18);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--purple {
+  background: rgba(152, 16, 250, 0.18);
+}
+
+.soft-card--audience .list-blocks li:hover .audience-check--pink {
+  background: rgba(230, 0, 118, 0.18);
 }
 
 .audience-check {
@@ -670,8 +1138,9 @@ button {
 }
 
 .result-list {
+  margin-top: 50px;
   display: grid;
-  gap: 22px;
+  gap: 30px;
 }
 
 .result-list li {
@@ -1007,21 +1476,20 @@ button {
 
 .cta-banner::before {
   left: 34px;
-  top: 60px;
-  width: 104px;
-  height: 72px;
-  background: linear-gradient(180deg, transparent 0 16px, rgba(153, 174, 239, 0.22) 16px 18px, transparent 18px 30px, rgba(153, 174, 239, 0.22) 30px 32px, transparent 32px 44px, rgba(153, 174, 239, 0.22) 44px 46px, transparent 46px);
+  top: 40px;
+  width: 80px;
+  height: 80px;
+  background:  url('/assets/icon/ctaL.svg') center / contain no-repeat;
   opacity: 0.85;
 }
 
 .cta-banner::after {
   right: 30px;
   bottom: 28px;
-  width: 82px;
-  height: 82px;
-  border-radius: 50%;
-  border: 1px solid rgba(129, 150, 255, 0.24);
-  box-shadow: inset 0 0 0 12px rgba(129, 150, 255, 0.08), 0 0 0 14px rgba(129, 150, 255, 0.04);
+  width: 90px;
+  height: 90px;
+  background: url('/assets/icon/ctaR.svg') center / contain no-repeat;
+  opacity: 0.85;
 }
 
 .cta-banner__content {
@@ -1098,16 +1566,16 @@ button {
 
   .goals-section .section-wrap::before {
     right: 4px;
-    top: -10px;
-    width: 122px;
-    height: 122px;
+    top: -40px;
+    width: 180px;
+    height: 180px;
   }
 
   .goals-section .section-wrap::after {
-    left: 0;
-    bottom: -64px;
-    width: 78px;
-    height: 78px;
+    left: -10px;
+    bottom: -80px;
+    width: 130px;
+    height: 130px;
   }
 }
 
@@ -1288,10 +1756,10 @@ button {
   }
 
   .goals-section .section-wrap::before {
-    right: 0;
-    top: 56px;
-    width: 84px;
-    height: 84px;
+    right: 40;
+    top: -40px;
+    width: 180px;
+    height: 180px;
   }
 
   .goals-section .section-wrap::after {
@@ -1371,7 +1839,12 @@ button {
   }
 
   .section-title {
+    gap: 8px;
     margin-bottom: 26px;
+  }
+
+  .section-title__top {
+    gap: 10px;
   }
 
   .section-title h2 {
