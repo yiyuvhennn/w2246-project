@@ -137,8 +137,8 @@ button {
 .goals-section .section-wrap::before {
   content: '';
   position: absolute;
-  right: -26px;
-  top: -90px;
+  right: 20px;
+  top: -50px;
   width: 185px;
   height: 185px;
   background: url('/assets/icon/GSright.svg') center / contain no-repeat;
@@ -213,8 +213,8 @@ button {
 }
 
 .section-title__icon img {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
@@ -1185,8 +1185,8 @@ button {
 }
 
 .cta-banner__icon-shape {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: inline-block;
   background-color: currentColor;
   -webkit-mask-image: var(--icon-url);
@@ -1311,7 +1311,7 @@ button {
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 420px) {
   :root {
     --container: min(calc(100vw - 32px), 100%);
   }
@@ -1341,6 +1341,20 @@ button {
     line-height: 1.75;
   }
 
+  .goals-section .section-wrap {
+    position: relative;
+    isolation: isolate;
+    z-index: 0;
+  }
+
+  .goals-section .section-wrap::after {
+    left: 20px;
+    bottom: -20px;
+    width: 130px;
+    height: 130px;
+    z-index: -1;
+    pointer-events: none;
+  }
 
   /* 1) 上方三顆資訊卡不要再硬擠 */
   .hero__pills {
@@ -1371,7 +1385,6 @@ button {
 
   /* 2) badge 背景加厚，不要透出背景 */
   .hero__badge {
-    background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(198, 209, 223, 0.78);
     box-shadow: 0 8px 18px rgba(155, 164, 176, 0.18);
     backdrop-filter: blur(10px);
@@ -1402,8 +1415,6 @@ button {
     font-size: 1.58rem;
   }
 
-  .soft-card,
-  .result-card,
   .goal-card,
   .teacher-card,
   .session-card,
@@ -1412,6 +1423,101 @@ button {
     border-radius: 22px;
   }
 
+  .soft-card,
+  .result-card {
+    padding: 18px 18px 20px;
+    border-radius: 20px;
+  }
+
+  .card-heading {
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .mini-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+  }
+
+  .mini-icon img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .list-blocks {
+    gap: 0px;
+  }
+
+  .list-blocks li,
+  .audience-list li {
+    grid-template-columns: 24px 1fr;
+    gap: 10px;
+  }
+
+  .audience-check {
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+    justify-self: start;
+    flex: 0 0 18px;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .audience-check::before {
+    width: 18px;
+    height: 18px;
+  }
+
+  .list-blocks strong {
+    font-size: 0.98rem;
+    line-height: 1.35;
+  }
+
+  .list-blocks p {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .soft-card--audience::before {
+    right: 14px;
+    bottom: 14px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .result-card::before {
+    top: 14px;
+    right: 18px;
+    width: 78px;
+    height: 78px;
+  }
+
+  .result-list {
+    margin-top: 24px;
+    gap: 18px;
+  }
+
+  .result-list li {
+    grid-template-columns: 24px 1fr;
+    gap: 10px;
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+
+  .result-list__icon-wrap {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+  }
+
+  .result-list__icon {
+    width: 16px;
+    height: 16px;
+  }
   .goal-grid,
   .session-grid {
     grid-template-columns: 1fr;
@@ -1507,10 +1613,10 @@ button {
   }
 
   .goals-section .section-wrap::after {
-    left: 10px;
-    bottom: 12px;
-    width: 44px;
-    height: 44px;
+    left: 20px;
+    bottom: -20px;
+    width: 130px;
+    height: 130px;
   }
 
   .mobile-carousel-controls {
@@ -1552,31 +1658,19 @@ button {
     align-items: center;
   }
 
-  .cta-banner h2 {
-    font-size: clamp(2rem, 10vw, 3rem);
-  }
-
   .cta-banner p {
     font-size: 1rem;
     line-height: 1.82;
+    max-width: 200px;
   }
   .hero__description,
   .section-title p,
   .teacher-card__intro,
-  .list-blocks p,
   .goal-card p,
   .info-list-card li,
   .session-card li {
     font-size: 0.95rem;
     line-height: 1.78;
-  }
-
-  .hero-pill {
-    width: 146px;
-  }
-
-  .hero-pill:last-child {
-    width: 112px;
   }
 
   .section-title {
@@ -1590,10 +1684,6 @@ button {
 
   .section-title h2 {
     font-size: 1.78rem;
-  }
-
-  .card-heading h3 {
-    font-size: 1.42rem;
   }
 
   .teacher-card__top {
@@ -1629,4 +1719,43 @@ button {
     width: 72px;
     height: 72px;
   }
+  .mobile-active-indicator {
+    display: block;
+    width: 34px;
+    height: 28px;
+    margin-top: 12px;
+    margin-left: 38px;
+    border-radius: 7px;
+    box-shadow: 0 10px 18px rgba(31, 42, 55, 0.1);
+    z-index: 2;
+    transition:
+      background 0.25s ease,
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .mobile-active-indicator--blue {
+    background: linear-gradient(135deg, var(--blue-500), #4e86ff);
+  }
+
+  .mobile-active-indicator--purple {
+    background: linear-gradient(135deg, var(--purple-500), #c454ff);
+  }
+
+  .mobile-active-indicator--pink {
+    background: linear-gradient(135deg, var(--pink-500), #ff4faf);
+  }
+
+  .mobile-active-indicator--indigo {
+    background: linear-gradient(135deg, var(--indigo-500), #8a80ff);
+  }
+
+  .mobile-active-indicator--teal {
+    background: linear-gradient(135deg, var(--teal-500), #2dc8ba);
+  }
+
+  .mobile-active-indicator--orange {
+    background: linear-gradient(135deg, var(--orange-500), #ff9834);
+  }
 }
+
