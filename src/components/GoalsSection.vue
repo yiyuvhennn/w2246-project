@@ -28,10 +28,25 @@
       </div>
 
       <div
-        class="mobile-active-indicator"
-        :class="`mobile-active-indicator--${currentTone}`"
+        class="mobile-dots"
+        :style="{ '--active-index': currentIndex }"
         aria-hidden="true"
-      ></div>
+      >
+        <div class="mobile-dots__track">
+          <span
+            v-for="goal in goals.items"
+            :key="`${goal.title}-dot`"
+            class="mobile-dots__slot"
+          >
+            <span class="mobile-dots__dot"></span>
+          </span>
+
+          <span
+            class="mobile-dots__active"
+            :class="`mobile-dots__active--${currentTone}`"
+          ></span>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -47,6 +62,7 @@ const props = defineProps({
 
 const trackRef = ref(null)
 const currentIndex = ref(0)
+let rafId = 0
 
 const currentTone = computed(() => {
   return props.goals.items[currentIndex.value]?.tone || 'blue'
@@ -74,16 +90,25 @@ function updateCurrentIndex() {
   currentIndex.value = nearestIndex
 }
 
-function scrollByCard(direction) {
-  if (!trackRef.value) return
-  const amount = Math.round(trackRef.value.clientWidth * 0.82)
-  trackRef.value.scrollBy({ left: direction * amount, behavior: 'smooth' })
-
-  window.setTimeout(updateCurrentIndex, 260)
+function handleScroll() {
+  cancelAnimationFrame(rafId)
+  rafId = requestAnimationFrame(updateCurrentIndex)
 }
 
-function handleScroll() {
-  updateCurrentIndex()
+function scrollByCard(direction) {
+  if (!trackRef.value) return
+
+  const firstCard = trackRef.value.querySelector('.goal-card')
+  const amount = firstCard
+    ? firstCard.clientWidth + 14
+    : Math.round(trackRef.value.clientWidth * 0.88)
+
+  trackRef.value.scrollBy({
+    left: direction * amount,
+    behavior: 'smooth',
+  })
+
+  window.setTimeout(updateCurrentIndex, 280)
 }
 
 onMounted(async () => {
@@ -93,6 +118,7 @@ onMounted(async () => {
 })
 
 onBeforeUnmount(() => {
+  cancelAnimationFrame(rafId)
   trackRef.value?.removeEventListener('scroll', handleScroll)
 })
 </script>
